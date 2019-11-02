@@ -1,0 +1,33 @@
+<p>I am todo component</p>
+
+<form  #frm="ngForm" (ngSubmit)="addItem(frm)" class="form-inline">
+    <div class="form-group">
+        <input type="text"
+            class="form-control" 
+            name="itemName" 
+            ngModel
+        >
+
+    </div>
+    <button type="submit" name="button" class="btn btn-success">Add</button>
+</form>
+<hr>
+
+    <div *ngFor="let item of itemList">
+            <div class="row">
+        <span class="col-md-6">
+            {{item.itemName}}
+        </span>
+        <span class="col-md-2">
+                <input type="checkbox" [checked]="item.itemDone"
+                (click)="updateCheckBox(item)"
+                >
+            </span>
+            <span class="col-md-4">
+                    <button type="button" name="button" class="btn btn-danger" (click)="deleteItem(item._id)">X</button>
+            </span>
+
+
+    </div>
+
+</div>
